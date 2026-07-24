@@ -198,13 +198,13 @@ export default function DetailsInsert() {
               color: "rgba(83,67,66,0.6)",
               marginTop: 6,
             }}>
-              join us for dinner & music to follow
+              join us for lunch & music to follow
             </p>
           </div>
 
           {/* Stamp / Vignette on postcard */}
           <div className="w-12 h-14 border border-dashed border-[#b8985b]/60 flex flex-col items-center justify-center p-1 bg-white select-none">
-            <span style={{ fontFamily: "var(--font-allura)", fontSize: 13, color: "#b8985b" }}>M+J</span>
+            <span style={{ fontFamily: "var(--font-allura)", fontSize: 13, color: "#b8985b" }}>N+J</span>
             <span style={{ fontFamily: "var(--font-inter)", fontSize: 6, opacity: 0.5 }}>2026</span>
           </div>
         </div>
