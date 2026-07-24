@@ -24,7 +24,7 @@ export default function Envelope() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=750",
+          end: "+=1050",
           scrub: 2,
           pin: true,
           anticipatePin: 1,
@@ -47,36 +47,46 @@ export default function Envelope() {
       tl.to(sealHalfRRef.current, { x: 42,  y: -8, rotate:  28, opacity: 0, duration: 0.55, ease: "power3.out" }, "<");
 
       // ── 3. Flap swings fully open ──
-      tl.to(flapRef.current, { rotateX: -180, duration: 1.6, ease: "power2.inOut" }, "-=0.1");
+      tl.to(flapRef.current, { rotateX: -180, duration: 1.4, ease: "power2.inOut" }, ">");
       tl.set(flapRef.current, { zIndex: 2 });
+      tl.set(letterRef.current, { zIndex: 25 });
 
-      // ── 4. Letter rises from inside ──
-      tl.to(letterRef.current, {
-        y: -195,
+      // ── 4. Letter rises fully from inside like a popup ──
+      tl.fromTo(letterRef.current, {
+        y: 0,
+        scale: 0.8,
+        rotate: 0,
+        opacity: 0,
+      }, {
+        y: -250,
+        scale: 1.08,
+        rotate: -1.5,
         opacity: 1,
-        duration: 1.5,
-        ease: "power2.out",
-      }, "-=1.0");
+        duration: 1.6,
+        ease: "back.out(1.2)",
+      }, ">");
 
-      // ── 5. Church cutout fades in and slides up from the bottom ──
+      // Add a dedicated pause/hold so the open letter stands clearly in view
+      tl.to({}, { duration: 0.8 });
+
+      // ── 5. Only now reveal the rest: Church cutout fades in and envelope fades out ──
       tl.fromTo(churchCutoutRef.current, {
         opacity: 0,
         y: 60,
       }, {
         opacity: 0.95,
         y: 0,
-        duration: 1.3,
+        duration: 1.4,
         ease: "power2.out",
-      }, "-=1.2");
+      }, ">");
 
-      // ── 6. Envelope gently scales down and fades ──
       tl.to(envelopeRef.current, {
-        scale: 0.9,
+        scale: 0.88,
         opacity: 0,
-        y: 24,
-        duration: 0.9,
+        y: 28,
+        duration: 1.1,
         ease: "power1.inOut",
-      }, "-=0.6");
+      }, "<");
 
     }, sectionRef);
 
