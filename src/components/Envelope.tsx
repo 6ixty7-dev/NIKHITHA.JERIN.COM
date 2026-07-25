@@ -93,6 +93,7 @@ export default function Envelope() {
     return () => ctx.revert();
   }, []);
 
+
   return (
     <section
       ref={sectionRef}
@@ -136,7 +137,7 @@ export default function Envelope() {
         ref={envelopeRef}
         style={{
           position: "relative",
-          zIndex: 2,
+          zIndex: 3,
           width: 320,
           perspective: "1400px",
           perspectiveOrigin: "50% 50%",
@@ -346,26 +347,51 @@ export default function Envelope() {
         />
       </div>
 
-      {/* Scroll hint */}
-      <p
+      {/* Scroll hint badge — sitting just below the envelope note */}
+      <div
         ref={hintRef}
         style={{
-          position:"absolute", bottom:32, left:"50%",
-          transform:"translateX(-50%)",
-          zIndex:3,
-          fontFamily:"var(--font-caveat)", fontSize:14,
-          color:"rgba(83,67,66,0.4)", letterSpacing:"0.05em",
-          userSelect:"none", pointerEvents:"none",
-          animation:"envPulse 2.2s ease-in-out infinite",
+          position: "relative",
+          marginTop: 20,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 6,
+          zIndex: 4,
+          userSelect: "none",
+          pointerEvents: "none",
         }}
       >
-        scroll to open ↓
-      </p>
+        <span style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: 10,
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "#b63b3b",
+          fontWeight: 600,
+          border: "1px solid rgba(182,59,59,0.3)",
+          padding: "6px 14px",
+          borderRadius: "20px",
+          background: "rgba(250,248,242,0.9)",
+          boxShadow: "0 2px 10px rgba(122,92,71,0.06)",
+          animation: "envPulse 2.0s ease-in-out infinite",
+        }}>
+          Scroll to Open
+        </span>
+        {/* Delicate hand-drawn looking arrow */}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ stroke: "#b63b3b", strokeWidth: 1.5, animation: "bounceArrow 1.6s infinite" }}>
+          <path d="M12 5V19M12 19L6 13M12 19L18 13" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
 
       <style>{`
         @keyframes envPulse {
-          0%,100% { opacity:0.4; transform:translateX(-50%) translateY(0); }
-          50%      { opacity:0.7; transform:translateX(-50%) translateY(5px); }
+          0%, 100% { transform: scale(1); opacity: 0.95; }
+          50%      { transform: scale(1.03); opacity: 1; }
+        }
+        @keyframes bounceArrow {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(4px); }
         }
       `}</style>
     </section>
