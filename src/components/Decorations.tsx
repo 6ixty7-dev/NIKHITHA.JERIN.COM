@@ -293,7 +293,7 @@ export function CalendarPage({ className, style }: BaseProps) {
           <span key={i} className="font-semibold text-[8px] opacity-40">{d}</span>
         ))}
         {/* Empty cells for Aug 2026 starting on Sat */}
-        {Array.from({ length: 5 }).map((_, i) => (
+        {Array.from({ length: 6 }).map((_, i) => (
           <span key={i} />
         ))}
         {days.map((day) => {
