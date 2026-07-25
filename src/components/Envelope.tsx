@@ -369,9 +369,9 @@ export default function Envelope() {
         }}>
           Scroll to Open
         </span>
-        {/* Delicate hand-drawn looking arrow */}
+        {/* Delicate hand-drawn looking arrow pointing UP */}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ stroke: "#b63b3b", strokeWidth: 1.5, animation: "bounceArrow 1.6s infinite" }}>
-          <path d="M12 5V19M12 19L6 13M12 19L18 13" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 19V5M12 5L6 11M12 5L18 11" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
 
@@ -382,7 +382,7 @@ export default function Envelope() {
         }
         @keyframes bounceArrow {
           0%, 100% { transform: translateY(0); }
-          50%      { transform: translateY(4px); }
+          50%      { transform: translateY(-4px); }
         }
       `}</style>
     </section>
