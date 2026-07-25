@@ -310,15 +310,6 @@ export default function Envelope() {
         </div>{/* end envelope body */}
       </div>{/* end envelopeRef */}
 
-      {/* Personality note */}
-      <p style={{
-        position:"relative", zIndex:2, marginTop:28,
-        fontFamily:"var(--font-caveat)", fontSize:13,
-        color:"rgba(83,67,66,0.4)", transform:"rotate(-1.5deg)",
-        userSelect:"none", pointerEvents:"none",
-      }}>
-        you are cordially invited ♡
-      </p>
 
       {/* ── Church cutout background at the bottom ── */}
       <div
